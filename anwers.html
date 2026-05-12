@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Мультисенсорные системы — полный обзор + источники (рус/eng/tr)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(145deg, #f4f9ff 0%, #e9f0fa 100%);
+            color: #1a2a3f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .hero {
+            padding: 2.5rem 2rem 1.8rem;
+            background: linear-gradient(115deg, #ffffff 0%, #fafeff 100%);
+            border-bottom: 1px solid #e2edf7;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #0b3b4f, #1f7a6e, #2c9b8a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4a627a;
+            border-left: 4px solid #2c9b8a;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            padding: 1.2rem 2rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e0edf5;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-link {
+            background: #eef3fc;
+            padding: 0.45rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #1c6c6e;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #d9e9fa;
+            transform: translateY(-2px);
+            border-color: #9fc8e3;
+            color: #0d4e5c;
+        }
+
+        .section {
+            padding: 2rem 2rem 1.2rem;
+            border-bottom: 1px solid #eef2f8;
+            scroll-margin-top: 80px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1c5b6e, #258f7e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .section-title span {
+            font-size: 2rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #2c3f4f;
+            font-weight: 450;
+        }
+
+        .feature-list, .pros-list, .cons-list, .trend-list {
+            list-style: none;
+            margin: 1.2rem 0 1rem;
+        }
+
+        .feature-list li, .pros-list li, .cons-list li, .trend-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-weight: 480;
+        }
+
+        .feature-list li::before { content: "📡"; position: absolute; left: 0; top: 0; }
+        .pros-list li::before { content: "✅"; position: absolute; left: 0; top: 0; }
+        .cons-list li::before { content: "⚠️"; position: absolute; left: 0; top: 0; }
+        .trend-list li::before { content: "🚀"; position: absolute; left: 0; top: 0; }
+
+        .highlight {
+            background: #eef9f2;
+            border-left: 4px solid #2c9b8a;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1.2rem 0;
+            font-weight: 500;
+        }
+
+        .stat-badge {
+            font-weight: 700;
+            background: #ffe8df;
+            border-radius: 1rem;
+            padding: 0.2rem 0.8rem;
+            display: inline-block;
+        }
+
+        hr {
+            margin: 0.5rem 0 1rem;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #cbdbe6, transparent);
+        }
+
+        /* Стили для блока источников (ссылки) */
+        .sources-grid {
+            margin-top: 1rem;
+        }
+
+        .source-category {
+            background: #f8fafd;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2edf5;
+            transition: 0.1s;
+        }
+
+        .source-category h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a5f6e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 3px solid #2c9b8a;
+            padding-left: 0.8rem;
+        }
+
+        .source-list {
+            list-style: none;
+        }
+
+        .source-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px dashed #dce5ef;
+        }
+
+        .source-list li:last-child {
+            border-bottom: none;
+        }
+
+        .source-link {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            color: #1f6e6b;
+            transition: 0.2s;
+            word-break: break-all;
+        }
+
+        .source-link:hover {
+            color: #0c4e5c;
+            text-decoration: underline;
+        }
+
+        .source-desc {
+            font-size: 0.85rem;
+            color: #4a5f73;
+            margin-top: 0.3rem;
+            line-height: 1.4;
+        }
+
+        .badge-source {
+            background: #e0f0ea;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            font-weight: normal;
+            color: #1a6e5c;
+        }
+
+        footer {
+            background: #f0f6fe;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #5e6f88;
+            border-top: 1px solid #e0ecf5;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .section-title { font-size: 1.6rem; }
+            .nav-links { gap: 0.5rem; padding: 0.8rem 1rem; justify-content: center; }
+            .nav-link { padding: 0.3rem 1rem; font-size: 0.8rem; }
+            .section { padding: 1.5rem 1.2rem; }
+            .source-category h3 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content-card">
+        <div class="hero">
+            <h1>🧠 Мультисенсорные системы</h1>
+            <div class="subhead">
+                Институт перспективных технологий и промышленного программирования<br>
+                От сенсорных экранов до ИИ-аналитики: как датчики меняют познание мира
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#whatis" class="nav-link">🔍 1. Что это?</a>
+            <a href="#common" class="nav-link">💻 2. Распространённые системы</a>
+            <a href="#pros" class="nav-link">✅ 3. Плюсы</a>
+            <a href="#cons" class="nav-link">⚠️ 4. Недостатки</a>
+            <a href="#trends" class="nav-link">🚀 5. Тенденции</a>
+            <a href="#sources" class="nav-link">📚 6. Источники</a>
+        </div>
+
+        <div class="section" id="whatis">
+            <div class="section-title"><span>🔎</span> 1. Что такое мультисенсорные системы?</div>
+            <p><strong>Мультисенсорные системы (Multisensory Systems)</strong> — это комплексные решения, объединяющие несколько сенсоров (датчиков) для совместного сбора, анализа и интерпретации данных. В отличие от одиночных датчиков, такой подход даёт объёмную, точную и контекстную картину.</p>
+            <p>В зависимости от области применения понятие включает в себя:</p>
+            <ul class="feature-list">
+                <li><strong>Аналитическая химия:</strong> «электронный нос» или «электронный язык» — массивы датчиков для анализа газов и жидкостей.</li>
+                <li><strong>Оптика и фотоника:</strong> системы с двумя и более оптическими сенсорами для многоканальной регистрации.</li>
+                <li><strong>Управление и мониторинг:</strong> сети датчиков для контроля транспорта, производственных линий, экологических параметров.</li>
+                <li><strong>Интерфейсы человек–машина:</strong> мультитач, тактильные экраны, жестовое управление.</li>
+            </ul>
+            <div class="highlight">💡 <strong>Ключевая идея:</strong> один датчик может ошибаться или иметь слепые зоны, а совокупность сенсоров самострахует и создаёт полную картину мира.</div>
+        </div>
+
+        <div class="section" id="common">
+            <div class="section-title"><span>💻</span> 2. Самые распространённые системы</div>
+            <ul class="feature-list">
+                <li><strong>📱 Сенсорные экраны (мультитач):</strong> смартфоны, планшеты — распознают несколько касаний для жестов (масштабирование, поворот).</li>
+                <li><strong>🚗 Автомобильные ADAS:</strong> объединяют камеры, радары, лидары и ультразвук для автопилота и безопасности.</li>
+                <li><strong>📹 Мультисенсорные камеры видеонаблюдения:</strong> несколько матриц в одном корпусе, панорама 360° или совмещение видимого и ИК-диапазонов.</li>
+                <li><strong>👃 Электронные носы и языки:</strong> массивы газовых сенсоров распознают сложные запахи в пищевой промышленности, медицине, экологии.</li>
+                <li><strong>🏭 Промышленный интернет вещей (IIoT):</strong> сенсорные сети для прогнозирования отказов и энергоэффективности.</li>
+            </ul>
+        </div>
+
+        <div class="section" id="pros">
+            <div class="section-title"><span>✅</span> 3. Основные преимущества</div>
+            <ul class="pros-list">
+                <li><strong>Повышенная функциональность и интуитивность:</strong> мультитач жесты, естественные интерфейсы.</li>
+                <li><strong>Высокая точность и надёжность:</strong> компенсация недостатков одного датчика другим.</li>
+                <li><strong>Комплексный анализ:</strong> объединение данных под разными углами формирует целостный «образ» объекта.</li>
+                <li><strong>Оптимизация затрат:</strong> комбинация недорогих датчиков может дать результат, сравнимый с одним сверхточным сенсором.</li>
+                <li><strong>Адаптивность:</strong> системы могут перестраиваться при отказе одного из сенсоров.</li>
+            </ul>
+        </div>
+
+        <div class="section" id="cons">
+            <div class="section-title"><span>⚠️</span> 4. Сложности и ограничения</div>
+            <ul class="cons-list">
+                <li><strong>Сложность интеграции и высокая стоимость:</strong> согласование разнородных датчиков требует дорогих решений.</li>
+                <li><strong>Технические ограничения:</strong> износ резистивных экранов, потеря точности со временем.</li>
+                <li><strong>Отвлечение внимания:</strong> в автомобилях сенсорные панели могут отвлекать водителя сильнее физических кнопок.</li>
+                <li><strong>Калибровка и совместимость:</strong> разные датчики могут конфликтовать, требуя частых перенастроек.</li>
+                <li><strong>Чувствительность к внешней среде:</strong> влага, экстремальные температуры, вибрации.</li>
+            </ul>
+            <div class="highlight">🔧 <strong>Важно:</strong> многие недостатки решаются на этапе проектирования — избыточность сенсоров и интеллектуальные алгоритмы фильтрации.</div>
+        </div>
+
+        <div class="section" id="trends">
+            <div class="section-title"><span>🚀</span> 5. Тенденции развития</div>
+            <ul class="trend-list">
+                <li><strong>Рост рынка:</strong> объём мирового рынка мультисенсорных экранов достигнет <span class="stat-badge">$40.72 млрд к 2031 году</span>, а аналитические мультисенсорные решения с ИИ — <span class="stat-badge">$201.3 млрд к 2034 году</span>.</li>
+                <li><strong>Коллаборативное зондирование и Zero UI:</strong> управление без экранов — голос, жесты, отслеживание взгляда.</li>
+                <li><strong>Интеграция с ИИ и цифровыми двойниками:</strong> нейросети анализируют многомерные сигналы датчиков в реальном времени.</li>
+                <li><strong>Мультимодальные датчики:</strong> гибридные сенсоры, совмещающие оптический, тепловой и химический каналы.</li>
+                <li><strong>Интернет чувств (Internet of Senses):</strong> передача тактильных ощущений, запахов в VR/AR.</li>
+                <li><strong>Энергонезависимые сенсорные сети:</strong> сбор энергии из окружения (вибрация, свет, тепло).</li>
+            </ul>
+        </div>
+
+        <!-- РАЗДЕЛ С ИСТОЧНИКАМИ (русскоязычные + турецкие) -->
+        <div class="section" id="sources">
+            <div class="section-title"><span>📚</span> 6. Полезные материалы и исследования</div>
+            <p>Проверенные источники на русском и турецком языках, которые помогут углубиться в тему мультисенсорных систем.</p>
+            <div class="sources-grid">
+                <!-- РУССКИЕ ИСТОЧНИКИ (как ранее) -->
+                <div class="source-category">
+                    <h3>🇷🇺 Русскоязычные материалы</h3>
+                    <ul class="source-list">
+                        <li><a class="source-link" href="https://kit-e.ru/multisensornye-uzly-i-seti/?link=1" target="_blank" rel="noopener noreferrer">Мультисенсорные узлы и сети — в основе следующего поколения интеллектуальных транспортных средств и систем</a><span class="badge-source">КИТ</span>
+                            <div class="source-desc">Роль мультисенсорных систем в автомобилях: объединение десятков датчиков для интеллектуального транспорта.</div>
+                        </li>
+                        <li><a class="source-link" href="https://www.mdpi.com/1424-8220/22/9" target="_blank" rel="noopener noreferrer">Научный обзор в журнале Sensors (MDPI) — мультисенсорные системы газового анализа</a><span class="badge-source">MDPI</span>
+                            <div class="source-desc">Разработка «электронного носа» с использованием печатных технологий. Статья анонсировалась на обложке журнала.</div>
+                        </li>
+                        <li><a class="source-link" href="https://ru.wikipedia.org/wiki/MultiTouch" target="_blank" rel="noopener noreferrer">Мультитач — Википедия</a><span class="badge-source">Wiki</span>
+                            <div class="source-desc">Базовое определение и принципы работы технологии распознавания нескольких касаний.</div>
+                        </li>
+                        <li><a class="source-link" href="https://itc.ua/articles/kakimi-byvayut-sensornyie-ekrany/" target="_blank" rel="noopener noreferrer">Статья «Какими бывают сенсорные экраны?»</a><span class="badge-source">itc.ua</span>
+                            <div class="source-desc">Обзор типов сенсорных экранов (резистивные, ёмкостные) и мультитач.</div>
+                        </li>
+                        <li><a class="source-link" href="https://myseldon.com/ru/news/index/336639891" target="_blank" rel="noopener noreferrer">Реальность против Маска: почему даже роботы требуют видеть дальше, чем камера</a><span class="badge-source">Myseldon</span>
+                            <div class="source-desc">Спор о необходимости мультисенсорного подхода в автопилотах: гибрид камер, радаров и лидаров.</div>
+                        </li>
+                        <li><a class="source-link" href="https://elib.wkau.kz/lib/document/VSEK/513E9AB2-17EF-4420-8B1B-3EB71B9F1E73/" target="_blank" rel="noopener noreferrer">Монография «Мультисенсорные системы в анализе жидких и газовых объектов» (2010)</a><span class="badge-source">Эл. библиотека</span>
+                            <div class="source-desc">Принципы работы «электронного носа» и «языка».</div>
+                        </li>
+                        <li><a class="source-link" href="https://kristall-systems.net.ua/novosti/sravnenie_tehnologiy_vizualizatsii_preimuschestva_multisensornyih_platform/" target="_blank" rel="noopener noreferrer">Сравнение технологий визуализации. Преимущества мультисенсорных платформ</a><span class="badge-source">kristall-systems</span>
+                            <div class="source-desc">Объединение камеры видимого света и тепловизора.</div>
+                        </li>
+                        <li><a class="source-link" href="https://24tv.ua/auto/ru/tag/ru/pochemu_sensornye_jekrany_v_sovremennyh_avtomobilyah_opasny_issledovanie_n68561" target="_blank" rel="noopener noreferrer">Исследование: почему сенсорные экраны в автомобилях опасны для водителей</a><span class="badge-source">24tv.ua</span>
+                            <div class="source-desc">Сенсорные экраны снижают точность управления на 58%.</div>
+                        </li>
+                        <li><a class="source-link" href="https://erditechs.com/ru/blogs/erdi-laser-laser-rangefinding-trends/-sensor-fusion-vs-sensor-diversity-real-time" target="_blank" rel="noopener noreferrer">Слияние датчиков против разнообразия датчиков</a><span class="badge-source">erditechs.com</span>
+                            <div class="source-desc">Технические проблемы: коррелированные ошибки, синхронизация, калибровка.</div>
+                        </li>
+                        <li><a class="source-link" href="https://www.researchandmarkets.com/reports/6226338/multi-sensory-ai-market-report" target="_blank" rel="noopener noreferrer">Multi-Sensory AI Market Report 2026</a><span class="badge-source">Research and Markets</span>
+                            <div class="source-desc">Рынок вырос с $17.93 млрд (2025) до $23.59 млрд (2026), прогноз до $70.17 млрд к 2030.</div>
+                        </li>
+                        <li><a class="source-link" href="https://visualize.jove.com/41977937-sensors-in-self-driving-vehicles-a-detailed-literature-review-and-new-trends" target="_blank" rel="noopener noreferrer">Систематический обзор «Sensors in Self-Driving Vehicles» (2026)</a><span class="badge-source">JoVE</span>
+                            <div class="source-desc">Критическая важность мультисенсорной интеграции для автопилотируемых автомобилей.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ТУРЕЦКИЕ ИСТОЧНИКИ (новый блок) -->
+                <div class="source-category">
+                    <h3>🇹🇷 Türkçe kaynaklar (материалы на турецком языке)</h3>
+                    <ul class="source-list">
+                        <li><a class="source-link" href="https://dergipark.org.tr/tr/download/article-file/3446286" target="_blank" rel="noopener noreferrer">Çoklu Duyusal Ürün Tasarımında Fikir Geliştirme İçin Sinestetik Düşünme</a><span class="badge-source">DergiPark (2024)</span>
+                            <div class="source-desc">Синестетическое мышление для генерации идей в мультисенсорном дизайне продуктов — академическое исследование.</div>
+                        </li>
+                        <li><a class="source-link" href="https://tr.wikipedia.org/wiki/Multi-touch" target="_blank" rel="noopener noreferrer">Multi-touch / Çoklu Dokunmatik (Vikipedi)</a><span class="badge-source">Wikipedia TR</span>
+                            <div class="source-desc">Базовое объяснение технологии мультитач на турецком языке.</div>
+                        </li>
+                        <li><a class="source-link" href="http://dergisosyalbil.selcuk.edu.tr/susbed/article/download/2187/1631" target="_blank" rel="noopener noreferrer">Çok Duyulu Mekân Kavramının Duyu Bütünleme Teorisi Üzerinden Tartışılması: Therme Vals Kaplıca Örneği</a><span class="badge-source">Selçuk Üniversitesi (2024)</span>
+                            <div class="source-desc">Мультисенсорное пространство на примере спа-центра Therme Vals — исследование сенсорной интеграции в архитектуре.</div>
+                        </li>
+                        <li><a class="source-link" href="https://satinalmadergisi.com/besi-bir-arada-cok-duyulu-pazarlama/" target="_blank" rel="noopener noreferrer">Beşi Bir Arada: Çok Duyulu Pazarlama</a><span class="badge-source">Satınalma Dergisi</span>
+                            <div class="source-desc">Мультисенсорный маркетинг: как бренды используют запах, вкус, визуал и музыку для влияния на покупку.</div>
+                        </li>
+                        <li><a class="source-link" href="https://dergipark.org.tr/tr/pub/egitimvebilim/issue/28007/298712" target="_blank" rel="noopener noreferrer">Çok duyulu (multisensory) yabancı dil öğretimi</a><span class="badge-source">DergiPark</span>
+                            <div class="source-desc">Мультисенсорное обучение иностранному языку: преимущества стратегий в образовании.</div>
+                        </li>
+                        <li><a class="source-link" href="https://ab.org.tr/ab07/bildiri/24.pdf" target="_blank" rel="noopener noreferrer">NEDEN VERİ FÜZYONU? (Почему нужна дата-фюзия?)</a><span class="badge-source">Gazi Üniversitesi</span>
+                            <div class="source-desc">Сложности мультисенсорных систем: избыточность данных, риск ошибок при неправильной структуре фьюжн.</div>
+                        </li>
+                        <li><a class="source-link" href="https://www.thenewsight.com/foresight/hissedebilecegimiz-bir-gelecek-yarinin-cok-duyulu-pazarlamasi/" target="_blank" rel="noopener noreferrer">Hissedebileceğimiz bir gelecek: Yarının çok duyulu pazarlaması</a><span class="badge-source">The Newsight (2026)</span>
+                            <div class="source-desc">Тенденции мультисенсорного маркетинга: ИИ, тактильные ощущения, биометрия в физических магазинах.</div>
+                        </li>
+                        <li><a class="source-link" href="https://dergipark.org.tr/tr/download/article-file/2534166" target="_blank" rel="noopener noreferrer">Veri Füzyonu: Veri Kaynakları, Mimariler, Zorluklar ve Çözüm Yaklaşımları</a><span class="badge-source">Fırat Üniversitesi (2022)</span>
+                            <div class="source-desc">Глубокое погружение в технологии объединения данных с сенсоров для IoT и умных городов.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight" style="margin-top: 0.5rem;">
+                📌 Если какой-то аспект заинтересовал вас особенно — мы можем подготовить детальный разбор по конкретным технологиям (ёмкостные vs резистивные экраны, лидар vs радар, газовые анализаторы и т.д.). Также возможен поиск дополнительных материалов на других языках.
+            </div>
+        </div>
+
+        <footer>
+            © 2026 Институт перспективных технологий и промышленного программирования<br>
+            Мультисенсорные системы: теория, применение, рынок. Ссылки на русском и турецком языках.
+        </footer>
+    </div>
+</div>
+</body>
+</html>
